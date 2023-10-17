@@ -9,6 +9,8 @@ import { colors } from "../utils/colors";
 import FeedScreen from "../screens/Feed/FeedScreen";
 import ChatListScreen from "../screens/ChatList/ChatListScreen";
 import ProfileScreen from "../screens/Profile/ProfileScreen";
+import { fonts } from "../utils/fonts";
+import { FontAwesome5 } from "@expo/vector-icons";
 
 const Tab = createBottomTabNavigator();
 const MainStack = createNativeStackNavigator();
@@ -60,10 +62,43 @@ const Navigation = () => {
 
 const BottomTabs = () => {
   return (
-    <Tab.Navigator>
-      <Tab.Screen name="Feed" component={FeedScreen} />
-      <Tab.Screen name="ChatList" component={ChatListScreen} />
-      <Tab.Screen name="Profile" component={ProfileScreen} />
+    <Tab.Navigator
+      screenOptions={{
+        headerShown: false,
+        tabBarActiveTintColor: colors.primary,
+        tabBarLabelStyle: fonts.ps,
+      }}
+    >
+      <Tab.Screen
+        name="Feed"
+        component={FeedScreen}
+        options={{
+          tabBarLabel: "Feed",
+          tabBarIcon: ({ color, size }) => (
+            <FontAwesome5 solid name="home" color={color} size={20} />
+          ),
+        }}
+      />
+      <Tab.Screen
+        name="ChatList"
+        component={ChatListScreen}
+        options={{
+          tabBarLabel: "Discussion",
+          tabBarIcon: ({ color, size }) => (
+            <FontAwesome5 solid name="comments" color={color} size={20} />
+          ),
+        }}
+      />
+      <Tab.Screen
+        name="Profile"
+        component={ProfileScreen}
+        options={{
+          tabBarLabel: "Profile",
+          tabBarIcon: ({ color, size }) => (
+            <FontAwesome5 solid name="user" color={color} size={20} />
+          ),
+        }}
+      />
     </Tab.Navigator>
   );
 };

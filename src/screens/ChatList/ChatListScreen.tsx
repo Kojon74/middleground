@@ -1,13 +1,13 @@
-import { StyleSheet, Text, View } from "react-native";
+import { SafeAreaView, StyleSheet, Text } from "react-native";
 import React from "react";
 
 type Props = {};
 
 const ChatListScreen = (props: Props) => {
   return (
-    <View>
+    <SafeAreaView>
       <Text>ChatListScreen</Text>
-    </View>
+    </SafeAreaView>
   );
 };
 
